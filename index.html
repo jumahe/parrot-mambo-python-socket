@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <p>Hello World</p>
+    <button onClick="sendMsg()">CLICK ME</button>
+    <button onClick="sendTakeOff()">TAKE OFF</button>
+    <button onClick="sendTurnRight()">TURN RIGHT</button>
+    <button onClick="sendTurnLeft()">TURN LEFT</button>
+    <button onClick="sendLand()">LAND</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+      const socket = io('http://localhost');
+      function sendMsg() { socket.emit("message", "HELLO WORLD"); }
+      function sendTakeOff() { socket.emit("takeoff"); }
+      function sendTurnRight() { socket.emit("turnright"); }
+      function sendTurnLeft() { socket.emit("turnleft"); }
+      function sendLand() { socket.emit("land"); }
+    </script>
+  </body>
+</html>
